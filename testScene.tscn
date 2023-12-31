@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://udrwc7om6ctl"]
+
+[ext_resource type="Texture2D" uid="uid://c2p6c5rrse8og" path="res://icon.svg" id="1_7a1me"]
+[ext_resource type="Script" path="res://SceneManager.gd" id="1_xg3r5"]
+[ext_resource type="PackedScene" uid="uid://xhw5uj2rks03" path="res://player.tscn" id="2_lbvxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xvys"]
+size = Vector2(943, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xg3r5")
+PlayerScene = ExtResource("2_lbvxw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(537, 570)
+scale = Vector2(6.51953, 0.21875)
+texture = ExtResource("1_7a1me")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(521, 568)
+shape = SubResource("RectangleShape2D_1xvys")
+
+[node name="SpawnLocation" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(429, 535)
+
+[node name="1" type="Node2D" parent="SpawnLocation" groups=["PlayerSpawnPoint"]]
+position = Vector2(676, 544)
